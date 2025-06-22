@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# BibleDuo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**BibleDuo** is a simple, modern web app to help you read the Bible every day and build a lasting habit. Track your streaks, follow a reading plan, and enjoy the Bible in English (ESV) or Chinese (CUVS).
 
-## Available Scripts
+## What You Can Do
 
-In the project directory, you can run:
+- 📅 **Follow a daily reading plan**  
+- 🔥 **Track your reading streaks**  
+- 🌗 **Switch between light and dark mode**  
+- 🈳 **Read in English (ESV) or Chinese (CUVS)**  
+- 📱 **Works great on your phone or computer**  
+- ⚙️ **Customize font size and more in Settings**  
+- 💾 **Your progress is saved automatically**
 
-### `npm start`
+> **More reading plans and Bible versions are coming soon!**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Quick Start
 
-### `npm test`
+1. Open the app in your browser.
+2. Pick a reading plan and Bible version in Settings.
+3. Start reading and mark each day as complete to keep your streak going!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## iOS Widget (Scriptable)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can add your streak to your iPhone home screen using [Scriptable](https://scriptable.app/) and the `/widget` page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Example Scriptable code:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```javascript
+// BibleDuo Widget Example
+let url = "https://evank-wc.github.io/Bible-Duo/widget";
+let req = new Request(url);
+let html = await req.loadString();
+let wv = new WebView();
+await wv.loadHTML(html);
+wv.present();
+```
 
-### `npm run eject`
+- The widget will show your current streak and progress in a beautiful, motivating style.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## More to Come
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- More reading plans (e.g., whole Bible in a year, topical plans)
+- More Bible versions (other English, Chinese, and more languages)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Happy reading!**  
+BibleDuo Team

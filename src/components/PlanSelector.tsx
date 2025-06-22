@@ -52,7 +52,7 @@ const PlanSelector: React.FC<PlanSelectorProps> = ({ settings, updateSettings })
   const loadPlans = async () => {
     setLoading(true);
     try {
-      const response = await fetch('/data/esveverydayinword_plan.json');
+      const response = await fetch(`${process.env.PUBLIC_URL}/data/esveverydayinword_plan.json`);
       const planData = await response.json();
       
       // Convert the single plan data to our expected format
