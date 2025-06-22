@@ -32,7 +32,7 @@ You can add your streak to your iPhone home screen using [Scriptable](https://sc
 
 ```javascript
 // BibleDuo Widget Example
-let url = "https://evank-wc.github.io/Bible-Duo/widget";
+let url = "https://evank-wc.github.io/bibleduo/#/widget";
 let req = new Request(url);
 let html = await req.loadString();
 let wv = new WebView();

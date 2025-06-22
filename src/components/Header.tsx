@@ -11,6 +11,14 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ settings, updateSettings }) => {
   const location = useLocation();
 
+  // Helper function to check if a path is active with HashRouter
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.hash === '' || location.hash === '#/';
+    }
+    return location.hash === `#${path}` || location.hash.startsWith(`#${path}/`);
+  };
+
   // UI text based on language
   const uiText = {
     en: {
@@ -39,25 +47,25 @@ const Header: React.FC<HeaderProps> = ({ settings, updateSettings }) => {
         <nav className="nav">
           <Link 
             to="/" 
-            className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
+            className={`nav-link ${isActive('/') ? 'active' : ''}`}
           >
             {currentText.home}
           </Link>
           <Link 
             to={`/bible/${settings.translation === 'ESV' ? 'Genesis' : '创世记'}/1`} 
-            className={`nav-link ${location.pathname.startsWith('/bible') ? 'active' : ''}`}
+            className={`nav-link ${isActive('/bible') ? 'active' : ''}`}
           >
             {currentText.bible}
           </Link>
           <Link 
             to="/plan-selector" 
-            className={`nav-link ${location.pathname === '/plan-selector' ? 'active' : ''}`}
+            className={`nav-link ${isActive('/plan-selector') ? 'active' : ''}`}
           >
             {currentText.readingPlans}
           </Link>
           <Link 
             to="/settings" 
-            className={`nav-link ${location.pathname === '/settings' ? 'active' : ''}`}
+            className={`nav-link ${isActive('/settings') ? 'active' : ''}`}
           >
             {currentText.settings}
           </Link>
