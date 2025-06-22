@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Bible-Duo/static/css/main.55079268.css",
-    "main.js": "/Bible-Duo/static/js/main.c291b46a.js",
-    "static/js/453.6ff0c027.chunk.js": "/Bible-Duo/static/js/453.6ff0c027.chunk.js",
-    "index.html": "/Bible-Duo/index.html",
-    "main.55079268.css.map": "/Bible-Duo/static/css/main.55079268.css.map",
-    "main.c291b46a.js.map": "/Bible-Duo/static/js/main.c291b46a.js.map",
-    "453.6ff0c027.chunk.js.map": "/Bible-Duo/static/js/453.6ff0c027.chunk.js.map"
+    "main.css": "/bibleduo/static/css/main.55079268.css",
+    "main.js": "/bibleduo/static/js/main.59215fb1.js",
+    "static/js/453.6ff0c027.chunk.js": "/bibleduo/static/js/453.6ff0c027.chunk.js",
+    "index.html": "/bibleduo/index.html",
+    "main.55079268.css.map": "/bibleduo/static/css/main.55079268.css.map",
+    "main.59215fb1.js.map": "/bibleduo/static/js/main.59215fb1.js.map",
+    "453.6ff0c027.chunk.js.map": "/bibleduo/static/js/453.6ff0c027.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.55079268.css",
-    "static/js/main.c291b46a.js"
+    "static/js/main.59215fb1.js"
   ]
 }
