@@ -52,7 +52,7 @@ const BibleViewer: React.FC<BibleViewerProps> = ({ settings }) => {
   const loadBibleData = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${process.env.PUBLIC_URL}/data/${settings.translation.toLowerCase()}.json`);
+      const response = await fetch(`./data/${settings.translation.toLowerCase()}.json`);
       const data = await response.json();
       setBibleData(data);
     } catch (error) {

@@ -143,12 +143,12 @@ const ReadingView: React.FC<ReadingViewProps> = ({ settings, updateSettings }) =
     const fetchData = async () => {
       try {
         // Fetch reading plan
-        const planResponse = await fetch(`${process.env.PUBLIC_URL}/data/esveverydayinword_plan.json`);
+        const planResponse = await fetch('./data/esveverydayinword_plan.json');
         const planData = await planResponse.json();
         setPlan(planData);
         
         // Fetch Bible text
-        const bibleResponse = await fetch(`${process.env.PUBLIC_URL}/data/${settings.translation.toLowerCase()}.json`);
+        const bibleResponse = await fetch(`./data/${settings.translation.toLowerCase()}.json`);
         const bibleData = await bibleResponse.json();
         setBible(bibleData);
         

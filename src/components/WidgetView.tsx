@@ -27,7 +27,7 @@ const WidgetView: React.FC<WidgetViewProps> = ({ settings }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${process.env.PUBLIC_URL}/data/esveverydayinword_plan.json`);
+        const response = await fetch('./data/esveverydayinword_plan.json');
         const planData = await response.json();
         setPlan(planData);
         
