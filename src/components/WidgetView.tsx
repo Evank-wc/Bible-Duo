@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { AppSettings } from '../types';
 import './WidgetView.css';
 
@@ -24,32 +24,7 @@ const WidgetView: React.FC<WidgetViewProps> = ({ settings }) => {
   const currentDay = settings.currentDay || 1;
   const completedDays = settings.completedDays || new Set<number>();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('./data/esveverydayinword_plan.json');
-        const planData = await response.json();
-        setPlan(planData);
-        
-        // Calculate streaks and stats
-        calculateStreaks();
-        
-      } catch (error) {
-        console.error('Error loading widget data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [settings.completedDays, settings.completionDates]);
-
-  useEffect(() => {
-    // Trigger animation when component mounts
-    setShowAnimation(true);
-  }, []);
-
-  const calculateStreaks = () => {
+  const calculateStreaks = useCallback(() => {
     if (!plan) return;
 
     const completedArray = Array.from(completedDays).sort((a, b) => a - b);
@@ -146,7 +121,36 @@ const WidgetView: React.FC<WidgetViewProps> = ({ settings }) => {
 
     setCurrentStreak(streak);
     setLongestStreak(maxStreak);
-  };
+  }, [plan, settings.completedDays, settings.completionDates]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('./data/esveverydayinword_plan.json');
+        const planData = await response.json();
+        setPlan(planData);
+        
+      } catch (error) {
+        console.error('Error loading widget data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Recalculate streaks whenever settings change
+  useEffect(() => {
+    if (plan) {
+      calculateStreaks();
+    }
+  }, [plan, settings.completedDays, settings.completionDates, calculateStreaks]);
+
+  useEffect(() => {
+    // Trigger animation when component mounts
+    setShowAnimation(true);
+  }, []);
 
   const getMotivationalMessage = () => {
     if (currentStreak === 0) {

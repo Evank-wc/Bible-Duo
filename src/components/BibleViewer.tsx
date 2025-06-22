@@ -201,10 +201,18 @@ const BibleViewer: React.FC<BibleViewerProps> = ({ settings }) => {
       
       const esvData = bibleData as ESVBible;
       const availableBooks = Object.keys(esvData);
-      
+      // Map canonical names to JSON keys
+      const esvBookNameMap: Record<string, string> = {
+        'Psalms': 'Psalm',
+        'Song of Solomon': 'Song Of Solomon',
+      };
+      const isBookAvailable = (book: string) => {
+        const mapped = esvBookNameMap[book] || book;
+        return availableBooks.includes(mapped);
+      };
       return {
-        oldTestament: oldTestament.filter(book => availableBooks.includes(book)),
-        newTestament: newTestament.filter(book => availableBooks.includes(book))
+        oldTestament: oldTestament.filter(isBookAvailable),
+        newTestament: newTestament.filter(isBookAvailable)
       };
     } else {
       // CUVS books in biblical order (Chinese names)

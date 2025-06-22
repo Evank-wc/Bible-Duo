@@ -13,17 +13,10 @@ const Header: React.FC<HeaderProps> = ({ settings, updateSettings }) => {
 
   // Helper function to check if a path is active with HashRouter
   const isActive = (path: string) => {
-    console.log('Debug - location.hash:', location.hash, 'checking path:', path);
-    
     if (path === '/') {
-      const isHomeActive = location.hash === '' || location.hash === '#/' || location.hash === '#';
-      console.log('Debug - isHomeActive:', isHomeActive);
-      return isHomeActive;
+      return location.pathname === '/' || location.pathname === '';
     }
-    
-    const isPathActive = location.hash === `#${path}` || location.hash.startsWith(`#${path}/`);
-    console.log('Debug - isPathActive for', path, ':', isPathActive);
-    return isPathActive;
+    return location.pathname === path || location.pathname.startsWith(`${path}/`);
   };
 
   // UI text based on language
