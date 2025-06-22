@@ -26,21 +26,7 @@
 
 ## iOS Widget (Scriptable)
 
-You can add your streak to your iPhone home screen using [Scriptable](https://scriptable.app/) and the `/widget` page.
-
-**Example Scriptable code:**
-
-```javascript
-// BibleDuo Widget Example
-let url = "https://evank-wc.github.io/bibleduo/#/widget";
-let req = new Request(url);
-let html = await req.loadString();
-let wv = new WebView();
-await wv.loadHTML(html);
-wv.present();
-```
-
-- The widget will show your current streak and progress in a beautiful, motivating style.
+Still In Progress
 
 ---
 
