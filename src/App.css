@@ -1,38 +1,180 @@
+/* CSS Variables for theming */
+:root {
+  /* Light theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6c757d;
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --primary-bg: #e3f2fd;
+  --success-color: #28a745;
+  --success-hover: #1e7e34;
+  --success-bg: #d4edda;
+  --error-color: #dc3545;
+  --error-bg: #f8d7da;
+  --border-color: #dee2e6;
+  --hover-bg: #f1f3f4;
+  --header-bg: #ffffff;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark theme */
+.dark {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --card-bg: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --primary-color: #4dabf7;
+  --primary-hover: #339af0;
+  --primary-bg: #1e3a5f;
+  --success-color: #51cf66;
+  --success-hover: #40c057;
+  --success-bg: #2b4a2b;
+  --error-color: #ff6b6b;
+  --error-bg: #4a2b2b;
+  --border-color: #404040;
+  --hover-bg: #404040;
+  --header-bg: #2d2d2d;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-weight: 400;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-weight: 400;
 }
 
-.App-link {
-  color: #61dafb;
+.main-content {
+  min-height: calc(100vh - 80px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Font size variable for dynamic sizing */
+:root {
+  --font-size: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  :root {
+    --font-size: 14px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .main-content {
+    min-height: calc(100vh - 120px);
   }
+  
+  .plan-card {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size: 13px;
+  }
+  
+  .main-content {
+    min-height: calc(100vh - 100px);
+  }
+  
+  .plan-card {
+    padding: 1rem;
+    margin: 0.75rem 0;
+  }
+  
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+a:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+.plan-card {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.plan-header h3, .plan-info, .plan-details, .detail-label, .detail-value {
+  color: var(--text-primary);
+}
+
+.plan-info, .detail-label {
+  color: var(--text-secondary);
+}
+
+.dark .plan-card {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  box-shadow: var(--card-shadow);
+}
+
+.dark .plan-header h3, .dark .plan-info, .dark .plan-details, .dark .detail-label, .dark .detail-value {
+  color: var(--text-primary);
+}
+
+.dark .plan-info, .dark .detail-label {
+  color: var(--text-secondary);
 }
